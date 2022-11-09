@@ -5,6 +5,8 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
@@ -37,20 +39,40 @@ class MainActivity : ComponentActivity() {
                 verticalArrangement = Arrangement.Top,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                makeButton({
-                    startActivity(
-                        Intent(
-                            applicationContext,
-                            VisibilityActivity::class.java
+                val navigationMap = listOf(
+                    Pair({
+                        startActivity(
+                            Intent(
+                                applicationContext,
+                                VisibilityActivity::class.java
+                            )
                         )
-                    )
-                }, "Visibility activity")
+                    }, "Visibility activity"),
+                    Pair({
+                        startActivity(
+                            Intent(
+                                applicationContext,
+                                VisibilityActivity::class.java
+                            )
+                        )
+                    }, "Visibility activity")
+                )
+                createButtonsList(navigationMap)
             }
         }
     }
 
     @Composable
-    fun makeButton(onClick: () -> Unit, text: String) {
+    fun createButtonsList(data: List<Pair<() -> Unit, String>>) {
+        LazyColumn {
+            items(data) { item ->
+                makeButtonWithAction(onClick = { item.first.invoke() }, text = item.second)
+            }
+        }
+    }
+
+    @Composable
+    fun makeButtonWithAction(onClick: () -> Unit, text: String) {
         Button(
             onClick = { onClick.invoke() },
             modifier = Modifier.height(60.dp).fillMaxWidth()
