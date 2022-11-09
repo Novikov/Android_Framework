@@ -42,12 +42,12 @@ class MainActivity : ComponentActivity() {
                 verticalArrangement = Arrangement.Top,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                val navigationMap =
+                val navigationList =
                     listOf(
                         VisibilityActivity::class.java,
                         CardList::class.java,
                     )
-                createButtonsList(navigationMap)
+                createButtonsList(navigationList)
             }
         }
     }
