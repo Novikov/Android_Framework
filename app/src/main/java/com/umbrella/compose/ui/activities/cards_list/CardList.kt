@@ -1,4 +1,4 @@
-package com.umbrella.compose.ui.activities.visibility
+package com.umbrella.compose.ui.activities.cards_list
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -10,9 +10,9 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.umbrella.compose.ui.activities.visibility.ui.theme.ComposeTheme
+import com.umbrella.compose.ui.activities.cards_list.ui.theme.ComposeTheme
 
-class VisibilityActivity : ComponentActivity() {
+class CardList : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -22,7 +22,7 @@ class VisibilityActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    Greeting("Visibility")
+                    Greeting2("Cards List")
                 }
             }
         }
@@ -30,14 +30,14 @@ class VisibilityActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String) {
+fun Greeting2(name: String) {
     Text(text = "Hello $name!")
 }
 
 @Preview(showBackground = true)
 @Composable
-fun DefaultPreview() {
+fun DefaultPreview2() {
     ComposeTheme {
-        Greeting("Visibility")
+        Greeting2("Cards List")
     }
 }

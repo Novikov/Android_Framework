@@ -16,6 +16,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.umbrella.compose.ui.activities.cards_list.CardList
 import com.umbrella.compose.ui.activities.visibility.VisibilityActivity
 import com.umbrella.compose.ui.theme.ComposeTheme
 
@@ -35,50 +36,39 @@ class MainActivity : ComponentActivity() {
             color = MaterialTheme.colors.background
         ) {
             Column(
-                modifier = Modifier.fillMaxHeight().fillMaxWidth(),
+                modifier = Modifier
+                    .fillMaxHeight()
+                    .fillMaxWidth(),
                 verticalArrangement = Arrangement.Top,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                val navigationMap = listOf(
-                    Pair({
-                        startActivity(
-                            Intent(
-                                applicationContext,
-                                VisibilityActivity::class.java
-                            )
-                        )
-                    }, "Visibility activity"),
-                    Pair({
-                        startActivity(
-                            Intent(
-                                applicationContext,
-                                VisibilityActivity::class.java
-                            )
-                        )
-                    }, "Visibility activity")
-                )
+                val navigationMap =
+                    listOf(
+                        VisibilityActivity::class.java,
+                        CardList::class.java,
+                    )
                 createButtonsList(navigationMap)
             }
         }
     }
 
     @Composable
-    fun createButtonsList(data: List<Pair<() -> Unit, String>>) {
+    fun createButtonsList(data: List<Class<out ComponentActivity>>) {
         LazyColumn {
-            items(data) { item ->
-                makeButtonWithAction(onClick = { item.first.invoke() }, text = item.second)
-            }
+            items(data) { item -> makeButtonWithAction(activity = item) }
         }
     }
 
     @Composable
-    fun makeButtonWithAction(onClick: () -> Unit, text: String) {
+    fun makeButtonWithAction(activity: Class<out ComponentActivity>) {
         Button(
-            onClick = { onClick.invoke() },
-            modifier = Modifier.height(60.dp).fillMaxWidth()
+            onClick = { startActivity(Intent(applicationContext, activity)) },
+            modifier = Modifier
+                .height(60.dp)
+                .fillMaxWidth()
                 .padding(start = 10.dp, end = 10.dp, top = 10.dp)
         ) {
-            Text(text = text)
+            Text(text = activity.simpleName)
         }
     }
 

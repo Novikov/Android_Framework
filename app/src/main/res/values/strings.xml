@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Compose</string>
     <string name="title_activity_visibility">VisibilityActivity</string>
+    <string name="title_activity_card_list">CardList</string>
 </resources>
