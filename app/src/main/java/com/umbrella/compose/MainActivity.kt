@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -29,25 +30,11 @@ class MainActivity : ComponentActivity() {
                         verticalArrangement = Arrangement.Top,
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
-                        makeButton { makeToast() }
-                        makeButton { makeToast() }
-                        makeButton { makeToast() }
-                        makeButton { makeToast() }
-                        makeButton { makeToast() }
-                        makeButton { makeToast() }
-                        makeButton { makeToast() }
-                        makeButton { makeToast() }
-                        makeButton { makeToast() }
-                        makeButton { makeToast() }
-                        makeButton { makeToast() }
-                        makeButton { makeToast() }
-                        makeButton { makeToast() }
-                        makeButton { makeToast() }
-                        makeButton { makeToast() }
-                        makeButton { makeToast() }
-                        makeButton { makeToast() }
-                        makeButton { makeToast() }
-                        makeButton { makeToast() }
+                        makeButton(this@MainActivity::makeToast, "Example 1")
+                        makeButton(this@MainActivity::makeToast, "Example 2")
+                        makeButton(this@MainActivity::makeToast, "Example 3")
+                        makeButton(this@MainActivity::makeToast, "Example 4")
+                        makeButton(this@MainActivity::makeToast, "Example 5")
                     }
                 }
             }
@@ -60,18 +47,20 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun makeButton(onClick: () -> Unit) {
+fun makeButton(onClick: () -> Unit, text: String) {
     Button(
         onClick = { onClick.invoke() },
         modifier = Modifier.height(60.dp).fillMaxWidth()
             .padding(start = 10.dp, end = 10.dp, top = 10.dp)
-    ) {}
+    ) {
+        Text(text = text)
+    }
 }
 
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
     ComposeTheme {
-        makeButton {}
+        makeButton({}, "ASDAS")
     }
 }
