@@ -1,2 +1,6 @@
-1)Чем отличается Row and Column?
-2)Полный отказ от RecyclerView?
+-Полный отказ от RecyclerView?
+
+-Вынос side эффектов в callback. Прочитать подробнее https://developer.android.com/jetpack/compose/mental-model
+
+-В продолжении вопроса выше. В статье сказано что не стоит делать side эффекты в compose функциях (Обновление счетчика).
+Тогда почему можно менять boolean переменные примерно такой же техникой?

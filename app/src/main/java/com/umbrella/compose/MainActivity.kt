@@ -45,7 +45,7 @@ class MainActivity : ComponentActivity() {
                 val navigationList =
                     listOf(
                         SimpleListActivity::class.java,
-                        CardList::class.java,
+                        CardList::class.java
                     )
                 createButtonsList(navigationList)
             }
