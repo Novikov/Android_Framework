@@ -19,7 +19,7 @@
             android:label="@string/title_activity_card_list"
             android:theme="@style/Theme.Compose" />
         <activity
-            android:name=".ui.activities.visibility.VisibilityActivity"
+            android:name=".ui.activities.visibility.LayoutsActivity"
             android:exported="false"
             android:label="@string/title_activity_visibility"
             android:theme="@style/Theme.Compose" />
