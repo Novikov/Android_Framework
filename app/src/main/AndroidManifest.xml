@@ -14,7 +14,7 @@
         android:theme="@style/Theme.Compose"
         tools:targetApi="31">
         <activity
-            android:name=".ui.activities.cards_list.CardList"
+            android:name=".ui.activities.cards_list.ListWithVisibilityActivity"
             android:exported="false"
             android:label="@string/title_activity_card_list"
             android:theme="@style/Theme.Compose" />

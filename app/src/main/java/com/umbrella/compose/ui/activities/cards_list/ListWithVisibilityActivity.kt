@@ -12,7 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.umbrella.compose.ui.activities.cards_list.ui.theme.ComposeTheme
 
-class CardList : ComponentActivity() {
+class ListWithVisibilityActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {

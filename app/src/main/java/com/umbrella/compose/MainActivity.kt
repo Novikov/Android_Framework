@@ -16,7 +16,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.umbrella.compose.ui.activities.cards_list.CardList
+import com.umbrella.compose.ui.activities.cards_list.ListWithVisibilityActivity
 import com.umbrella.compose.ui.activities.simple_list.SimpleListActivity
 import com.umbrella.compose.ui.theme.ComposeTheme
 
@@ -45,7 +45,7 @@ class MainActivity : ComponentActivity() {
                 val navigationList =
                     listOf(
                         SimpleListActivity::class.java,
-                        CardList::class.java
+                        ListWithVisibilityActivity::class.java
                     )
                 createButtonsList(navigationList)
             }
