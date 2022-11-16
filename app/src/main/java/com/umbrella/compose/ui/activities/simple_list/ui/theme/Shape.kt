@@ -1,4 +1,4 @@
-package com.umbrella.compose.ui.activities.visibility.ui.theme
+package com.umbrella.compose.ui.activities.simple_list.ui.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes

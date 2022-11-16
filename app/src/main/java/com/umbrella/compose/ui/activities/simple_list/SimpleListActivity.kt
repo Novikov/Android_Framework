@@ -1,4 +1,4 @@
-package com.umbrella.compose.ui.activities.visibility
+package com.umbrella.compose.ui.activities.simple_list
 
 import android.content.res.Configuration
 import android.os.Bundle
@@ -20,9 +20,9 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.umbrella.compose.R
-import com.umbrella.compose.ui.activities.visibility.ui.theme.ComposeTheme
+import com.umbrella.compose.ui.activities.simple_list.ui.theme.ComposeTheme
 
-class LayoutsActivity : ComponentActivity() {
+class SimpleListActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
