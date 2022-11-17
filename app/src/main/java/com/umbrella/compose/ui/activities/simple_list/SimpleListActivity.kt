@@ -10,9 +10,9 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -58,7 +58,7 @@ fun MessageCard(msg: Message) {
                 .size(40.dp)
                 // Clip image to be shaped as a circle
                 .clip(CircleShape)
-                .border(1.5.dp, MaterialTheme.colors.secondary, CircleShape)
+                .border(1.5.dp, MaterialTheme.colorScheme.secondary, CircleShape)
         )
         // Add a horizontal space between the image and the column
         Spacer(modifier = Modifier.width(8.dp))
@@ -71,20 +71,20 @@ fun MessageCard(msg: Message) {
         Column(modifier = Modifier.clickable { isExpanded = !isExpanded }) {
             Text(
                 text = msg.author,
-                color = MaterialTheme.colors.secondaryVariant,
-                style = MaterialTheme.typography.subtitle2
+                color = MaterialTheme.colorScheme.secondary,
+                style = MaterialTheme.typography.headlineLarge
             )
             // Add a vertical space between the author and message texts
             Spacer(modifier = Modifier.height(4.dp))
 
-            Surface(shape = MaterialTheme.shapes.medium, elevation = 1.dp) {
+            Surface(shape = MaterialTheme.shapes.medium, shadowElevation = 1.dp) {
                 Text(
                     text = msg.body,
                     modifier = Modifier.padding(all = 4.dp),
                     // If the message is expanded, we display all its content
                     // otherwise we only display the first line
                     maxLines = if (isExpanded) Int.MAX_VALUE else 1,
-                    style = MaterialTheme.typography.body2
+                    style = MaterialTheme.typography.bodyLarge
                 )
             }
         }

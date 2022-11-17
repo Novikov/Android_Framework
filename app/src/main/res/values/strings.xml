@@ -2,4 +2,6 @@
     <string name="app_name">Compose</string>
     <string name="title_activity_visibility">VisibilityActivity</string>
     <string name="title_activity_card_list">CardList</string>
+    <string name="show_more">Show more</string>
+    <string name="show_less">Show less</string>
 </resources>

@@ -7,24 +7,25 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material.Button
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
+import androidx.compose.material3.Button
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.umbrella.compose.ui.activities.cards_list.ListWithVisibilityActivity
 import com.umbrella.compose.ui.activities.simple_list.SimpleListActivity
-import com.umbrella.compose.ui.theme.ComposeTheme
+import com.umbrella.compose.ui.theme.MainTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            ComposeTheme {
+            MainTheme {
                 createNavigation()
             }
         }
@@ -33,7 +34,7 @@ class MainActivity : ComponentActivity() {
     @Composable
     fun createNavigation() {
         Surface(
-            color = MaterialTheme.colors.background
+            color = MaterialTheme.colorScheme.background
         ) {
             Column(
                 modifier = Modifier
@@ -68,14 +69,14 @@ class MainActivity : ComponentActivity() {
                 .fillMaxWidth()
                 .padding(start = 10.dp, end = 10.dp, top = 10.dp)
         ) {
-            Text(text = activity.simpleName)
+            Text(text = activity.simpleName, color = Color.White)
         }
     }
 
     @Preview(showBackground = true)
     @Composable
     fun DefaultPreview() {
-        ComposeTheme {
+        MainTheme {
             createNavigation()
         }
     }
