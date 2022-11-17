@@ -14,3 +14,7 @@ https://developer.android.com/codelabs/jetpack-compose-basics?continue=https%3A%
 -Есть техника определения modifier в ancestor методе. Правильно ли я понимаю что он пробросится во все descent composable, а там где необходимо ппереопределится?
 
 -Зачем используется адаптер делегат для простых экранов?
+
+-Почему в какие то элемнты передается парент модифаер, а в другие нет?
+
+- paddinggFromBaseline()
