@@ -32,7 +32,12 @@ class ListWithVisibilityActivity : ComponentActivity() {
 
 @Composable
 private fun MyApp(modifier: Modifier = Modifier) {
-    // state hosting
+    /**
+     * In Composable functions, state that is read or modified by multiple functions should live in a common ancestor—this process is called state hoisting.
+     * To hoist means to lift or elevate.
+     * Pesist state означает сохранение состояния при смене конфигурации с помощью rememberSaveable. Функция remember работает до тех пока composable объект
+     * находится в композиции (ну т.е в иерархии отрисованной верстки).
+     * */
     var shouldShowOnboarding by rememberSaveable { mutableStateOf(true) }
 
     Surface(modifier) {
@@ -83,7 +88,6 @@ fun OnboardingPreview() {
 
 @Composable
 fun OnboardingScreen(modifier: Modifier = Modifier, onContinueClicked: () -> Unit) {
-
     Column(
         modifier = modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
