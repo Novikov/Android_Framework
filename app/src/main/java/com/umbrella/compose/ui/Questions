@@ -5,3 +5,5 @@
 -Что такое DSL в Kotlin.
 
 -Что такое weight в модификаторе column?
+
+-Property delegate. В чем разница от обычного присваивания?
