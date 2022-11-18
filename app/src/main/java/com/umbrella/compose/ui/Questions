@@ -18,3 +18,5 @@ https://developer.android.com/codelabs/jetpack-compose-basics?continue=https%3A%
 -Почему в какие то элемнты передается парент модифаер, а в другие нет?
 
 - paddinggFromBaseline()
+
+-Что за проблема с сохранением состояния в списке

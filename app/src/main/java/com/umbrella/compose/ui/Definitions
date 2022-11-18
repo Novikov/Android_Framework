@@ -1,0 +1,8 @@
+1)Composable can be stateful(with holding state) and stateless(without holding state).
+2)State hosting is a pattern of moving state to a composable's caller to make a composable stateless.
+-single source of truth
+-it can be shared with multiple composables
+-it also intercepted by callers that can decide to ignore or modify the state and it decouple the state from the composable itself.
+
+State hosting is implementation of unidirectional data flow pattern in compose (UDF).
+State hosting allow us provide state to multiple composables.
