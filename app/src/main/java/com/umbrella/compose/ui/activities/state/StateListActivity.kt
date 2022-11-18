@@ -11,7 +11,6 @@ import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.runtime.*
-import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -37,17 +36,22 @@ class StateListActivity : ComponentActivity() {
 
 @Composable
 fun WellnessScreen(modifier: Modifier) {
-    WaterCounter(modifier)
+    StatefulCounter(modifier)
 }
 
 @Composable
-fun WaterCounter(modifier: Modifier = Modifier) {
+fun StatefulCounter(modifier: Modifier = Modifier) {
+    var waterCount by remember { mutableStateOf(0) }
+    StatelessCounter(waterCount, { waterCount++ }, modifier)
+}
+
+@Composable
+fun StatelessCounter(count: Int, onIncrement: () -> Unit, modifier: Modifier = Modifier) {
     Column(modifier = modifier.padding(16.dp)) {
-        var count by rememberSaveable { mutableStateOf(0) }
         if (count > 0) {
             Text("You've had $count glasses.")
         }
-        Button(onClick = { count++ }, Modifier.padding(top = 8.dp), enabled = count < 10) {
+        Button(onClick = onIncrement, Modifier.padding(top = 8.dp), enabled = count < 10) {
             Text("Add one")
         }
     }
