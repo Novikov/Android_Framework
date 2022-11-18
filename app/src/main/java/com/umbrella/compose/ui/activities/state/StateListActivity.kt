@@ -16,8 +16,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.umbrella.compose.ui.activities.state.ui.WellnessViewModel
 import com.umbrella.compose.ui.activities.state.ui.components.WellnessTasksList
-import com.umbrella.compose.ui.activities.state.ui.components.getWellnessTasks
 import com.umbrella.compose.ui.activities.state.ui.theme.ComposeTheme
 
 class StateListActivity : ComponentActivity() {
@@ -38,7 +39,7 @@ class StateListActivity : ComponentActivity() {
 }
 
 @Composable
-fun WellnessScreen(modifier: Modifier) {
+fun WellnessScreen(modifier: Modifier, wellnessViewModel: WellnessViewModel = viewModel()) {
     Column(modifier = modifier) {
         StatefulCounter()
         /** Important. Use this way of creation stateList. Don't usemutableStateListOf().
@@ -46,8 +47,13 @@ fun WellnessScreen(modifier: Modifier) {
          Тут нельзя использовать rememberSavable. Может привести к runtimeException т.к rememberSavable
          может сохранять значения которые можено положить в bundle. Скорее всего это примитивы. Список кастомных
          объектов положить не получится.**/
-        val list = remember { getWellnessTasks().toMutableStateList() }
-        WellnessTasksList(list = list, onCloseTask = { task -> list.remove(task) })
+        WellnessTasksList(
+            list = wellnessViewModel.tasks,
+            onCheckedTask = { task, checked ->
+                wellnessViewModel.changeTaskChecked(task, checked)
+            },
+            onCloseTask = { task -> wellnessViewModel.remove(task) }
+        )
     }
 }
 
