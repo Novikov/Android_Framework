@@ -4,4 +4,5 @@
     <string name="title_activity_card_list">CardList</string>
     <string name="show_more">Show more</string>
     <string name="show_less">Show less</string>
+    <string name="title_activity_state_list">StateListActivity</string>
 </resources>

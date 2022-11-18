@@ -14,6 +14,15 @@
         android:theme="@style/Theme.Compose"
         tools:targetApi="31">
         <activity
+            android:name=".ui.activities.state.StateListActivity"
+            android:exported="false"
+            android:label="@string/title_activity_state_list"
+            android:theme="@style/Theme.Compose">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".ui.activities.cards_list.ListWithVisibilityActivity"
             android:exported="false"
             android:label="@string/title_activity_card_list"
