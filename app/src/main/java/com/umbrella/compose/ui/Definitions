@@ -1,3 +1,13 @@
+The Composition: a description of the UI built by Jetpack Compose when it executes composables.
+
+Initial composition: creation of a Composition by running composables the first time.
+Recomposition: re-running composables to update the Composition when data changes.
+To be able to do this, Compose needs to know what state to track, so that when it receives an update it can schedule the recomposition.
+Compose has a special state tracking system in place that schedules recompositions for any composables that read a particular state.
+We have mutableStateOf + remember functions for it. If we want save state after configuration changes - we can use rememberSavable function
+insteadOf remember.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
 1)Composable can be stateful(with holding state) and stateless(without holding state).
 2)State hosting is a pattern of moving state to a composable's caller to make a composable stateless.
 -single source of truth
