@@ -41,8 +41,11 @@ class StateListActivity : ComponentActivity() {
 fun WellnessScreen(modifier: Modifier) {
     Column(modifier = modifier) {
         StatefulCounter()
-        // TODO: Important. Use this way of creation stateList. Don't usemutableStateListOf().
-        //  It might result in unexpected recomposition and suboptimal UI performance
+        /** Important. Use this way of creation stateList. Don't usemutableStateListOf().
+         / It might result in unexpected recomposition and suboptimal UI performance
+         Тут нельзя использовать rememberSavable. Может привести к runtimeException т.к rememberSavable
+         может сохранять значения которые можено положить в bundle. Скорее всего это примитивы. Список кастомных
+         объектов положить не получится.**/
         val list = remember { getWellnessTasks().toMutableStateList() }
         WellnessTasksList(list = list, onCloseTask = { task -> list.remove(task) })
     }
