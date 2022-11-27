@@ -18,6 +18,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.umbrella.compose.ui.activities.cards_list.ListWithVisibilityActivity
+import com.umbrella.compose.ui.activities.composition_local.CompositionLocalActivity
 import com.umbrella.compose.ui.activities.simple_list.SimpleListActivity
 import com.umbrella.compose.ui.activities.state.StateListActivity
 import com.umbrella.compose.ui.activities.state_hosting.StateHostingActivity
@@ -50,7 +51,8 @@ class MainActivity : ComponentActivity() {
                         SimpleListActivity::class.java,
                         ListWithVisibilityActivity::class.java,
                         StateListActivity::class.java,
-                        StateHostingActivity::class.java
+                        StateHostingActivity::class.java,
+                        CompositionLocalActivity::class.java
                     )
                 createButtonsList(navigationList)
             }
