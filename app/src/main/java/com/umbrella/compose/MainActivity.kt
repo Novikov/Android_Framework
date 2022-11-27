@@ -20,6 +20,7 @@ import androidx.compose.ui.unit.dp
 import com.umbrella.compose.ui.activities.cards_list.ListWithVisibilityActivity
 import com.umbrella.compose.ui.activities.simple_list.SimpleListActivity
 import com.umbrella.compose.ui.activities.state.StateListActivity
+import com.umbrella.compose.ui.activities.state_hosting.StateHostingActivity
 import com.umbrella.compose.ui.theme.MainTheme
 
 class MainActivity : ComponentActivity() {
@@ -48,7 +49,8 @@ class MainActivity : ComponentActivity() {
                     listOf(
                         SimpleListActivity::class.java,
                         ListWithVisibilityActivity::class.java,
-                        StateListActivity::class.java
+                        StateListActivity::class.java,
+                        StateHostingActivity::class.java
                     )
                 createButtonsList(navigationList)
             }
