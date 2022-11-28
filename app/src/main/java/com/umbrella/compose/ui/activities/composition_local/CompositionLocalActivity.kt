@@ -32,6 +32,8 @@ class CompositionLocalActivity : ComponentActivity() {
 /**
  * CompositionLocal is a tool for passing data down through the Composition implicitly
  * */
+
+// TODO: Не нашел нормальный пример. Переписать.
 @Composable
 fun Greeting2(name: String) {
     Text(text = "Hello $name!")
