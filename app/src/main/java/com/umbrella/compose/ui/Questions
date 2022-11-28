@@ -20,3 +20,7 @@ https://developer.android.com/codelabs/jetpack-compose-basics?continue=https%3A%
 - paddinggFromBaseline()
 
 -Что за проблема с сохранением состояния в списке
+
+
+---
+Когда использовать rememberSaveble а когда ViewModel?
