@@ -24,3 +24,4 @@ https://developer.android.com/codelabs/jetpack-compose-basics?continue=https%3A%
 
 ---
 Когда использовать rememberSaveble а когда ViewModel?
+зачем по дереву передается modifier, когда он уже есть у элементов как дефолтный параметр?
