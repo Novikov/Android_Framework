@@ -23,6 +23,15 @@
                 android:value="" />
         </activity>
         <activity
+            android:name=".ui.activities.instagram_card.InstagramCardActivity"
+            android:exported="false"
+            android:label="@string/title_instagram_card_activity"
+            android:theme="@style/Theme.Compose">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".ui.activities.state_hosting.StateHostingActivity"
             android:exported="false"
             android:label="@string/title_activity_state_hosting"

@@ -23,7 +23,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.umbrella.compose.R
-import com.umbrella.compose.ui.activities.cards_list.ui.theme.BasicsCodelabTheme
+import com.umbrella.compose.ui.activities.instagram_card.theme.BasicsCodelabTheme
 
 class ListWithVisibilityActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

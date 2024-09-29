@@ -6,5 +6,6 @@
     <string name="show_less">Show less</string>
     <string name="title_activity_state_list">StateListActivity</string>
     <string name="title_activity_state_hosting">StateHostingActivity</string>
+    <string name="title_instagram_card_activity">InstagramCardActivity</string>
     <string name="title_activity_composition_local">CompositionLocalActivity</string>
 </resources>

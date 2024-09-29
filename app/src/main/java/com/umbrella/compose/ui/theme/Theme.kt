@@ -10,7 +10,6 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.ViewCompat
-import com.umbrella.compose.ui.activities.cards_list.ui.theme.*
 
 private val DarkColorPalette = darkColorScheme(
     primary = Purple200,
@@ -59,7 +58,7 @@ fun MainTheme(
 
     MaterialTheme(
         colorScheme = colorScheme,
-        typography = com.umbrella.compose.ui.activities.cards_list.ui.theme.Typography,
+        typography = com.umbrella.compose.ui.activities.instagram_card.theme.Typography,
         content = content
     )
 }

@@ -1,4 +1,4 @@
-package com.umbrella.compose.ui.activities.cards_list.ui.theme
+package com.umbrella.compose.ui.activities.instagram_card.theme
 
 import android.app.Activity
 import android.os.Build
@@ -17,17 +17,17 @@ import androidx.compose.ui.platform.LocalView
 import androidx.core.view.ViewCompat
 
 private val DarkColorScheme = darkColorScheme(
-    surface = com.umbrella.compose.ui.activities.instagram_card.theme.Blue,
-    onSurface = com.umbrella.compose.ui.activities.instagram_card.theme.Navy,
-    primary = com.umbrella.compose.ui.activities.instagram_card.theme.Navy,
-    onPrimary = com.umbrella.compose.ui.activities.instagram_card.theme.Chartreuse
+    surface = Blue,
+    onSurface = Navy,
+    primary = Navy,
+    onPrimary = Chartreuse
 )
 
 private val LightColorScheme = lightColorScheme(
-    surface = com.umbrella.compose.ui.activities.instagram_card.theme.Blue,
+    surface = Blue,
     onSurface = Color.White,
-    primary = com.umbrella.compose.ui.activities.instagram_card.theme.LightBlue,
-    onPrimary = com.umbrella.compose.ui.activities.instagram_card.theme.Navy
+    primary = LightBlue,
+    onPrimary = Navy
 )
 
 @Suppress("DEPRECATION")
@@ -56,7 +56,7 @@ fun BasicsCodelabTheme(
 
     MaterialTheme(
         colorScheme = colorScheme,
-        typography = com.umbrella.compose.ui.activities.instagram_card.theme.Typography,
+        typography = Typography,
         content = content
     )
 }
