@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Navigation</string>
+    <string name="main_activity">Ui Main Activity</string>
+    <string name="hand_navigation_activity">Hand Navigation Activity</string>
+    <string name="fragment_a">Fragment A</string>
+    <string name="fragment_b">Fragment B</string>
+</resources>

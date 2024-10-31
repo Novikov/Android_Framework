@@ -1,8 +1,8 @@
-package com.app.ui.fragments.hand_navigation
+package com.app.navigation.hand_navigation
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.app.ui.R
+import com.app.navigation.R
 
 class HandNavigationActivity : AppCompatActivity(), FragmentA.CallBack {
     override fun onCreate(savedInstanceState: Bundle?) {

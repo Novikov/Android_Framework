@@ -1,4 +1,4 @@
-package com.app.ui.fragments.hand_navigation
+package com.app.navigation.hand_navigation
 
 import android.os.Bundle
 import android.util.Log
@@ -7,7 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
-import com.app.ui.R
+import com.app.navigation.R
 
 class FragmentB : Fragment() {
 
