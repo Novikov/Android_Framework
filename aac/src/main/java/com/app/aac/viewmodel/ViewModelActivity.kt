@@ -23,6 +23,11 @@ class ViewModelActivity : AppCompatActivity() {
     val viewModelWithLiveData : ViewModelWithLiveData by viewModels()
     val viewModelWithSaveStateHandle: ViewModelWithSaveStateHandle by viewModels()
 
+    /**
+     * Существуют способы инициализвации вьюмодели через делегат и фабрику с передачей параметров
+     * private val viewModel: MyViewModel by viewModels { MyViewModel.Factory }
+     * */
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_view_model)
@@ -30,7 +35,10 @@ class ViewModelActivity : AppCompatActivity() {
         initViewModels()
         logViewModelData()
         observeLiveData()
+        handleSavedStateHandle()
+    }
 
+    private fun handleSavedStateHandle() {
         val saveStateButton = findViewById<Button>(R.id.saveState)
         saveStateButton.setOnClickListener {
             viewModelWithSaveStateHandle.saveData("saved_text_from_activity")
@@ -69,8 +77,6 @@ class ViewModelActivity : AppCompatActivity() {
             this,
             SecondViewModel.MyViewModelFactory("some_text_for_param")
         ).get(SecondViewModel::class.java)
-
-        //C Передачей мапы Extras todo Разобрать как этим пользоваться
 
         //Создание ViewModel с контекстом
         wiewModelWithContext = ViewModelProvider(this).get(ViewModelWithContext::class.java)

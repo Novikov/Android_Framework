@@ -33,34 +33,21 @@ class ViewModelWithLiveData : ViewModel() {
 
     /**
      * LiveData — это компонент архитектуры Android Jetpack, который представляет собой наблюдаемый,
-     * жизненно-цикличный контейнер данных (Observable data holder). Он позволяет разработчикам эффективно управлять данными,
-     * которые могут изменяться, и обеспечивать обновление пользовательского интерфейса в ответ на эти изменения.
+     * жизненно-цикличный контейнер данных (Observable data holder).
      *
-     * Основные характеристики LiveData:
-     * Наблюдаемость: LiveData позволяет подписываться на изменения данных.
-     * Когда данные изменяются, все подписчики автоматически получают уведомление и могут обновить
-     * пользовательский интерфейс.
+     * В отличие от обычного наблюдаемого объекта - LiveData учитывает жизненный цикл других компонентов
+     * таких как Activity, Fragments или Service (Все кто наследует LifeCycleOwner)
      *
-     * Жизненный цикл: LiveData учитывает жизненный цикл компонентов, таких как Activity и Fragment.
-     * Это означает, что данные будут передаваться только тем компонентам,
-     * которые находятся в активном состоянии (например, в состоянии STARTED или RESUMED).
-     * Это помогает избежать утечек памяти и ненужных вызовов обновлений, когда пользовательский
-     * интерфейс неактивен.
+     * Эта осведомленность гарантирует, что LiveData обновляет только наблюдателей компонентов приложения, которые находятся в активном состоянии жизненного цикла.
      *
-     * Безопасность: LiveData не позволяет передавать данные в компоненты, которые не активны,
-     * что снижает вероятность сбоев приложения.
+     * LiveData considers an observer, which is represented by the Observer class, to be in an active state
+     * if its lifecycle is in the STARTED or RESUMED state. LiveData only notifies active observers about
+     * updates. Inactive observers registered to watch LiveData objects aren't notified about changes.
      *
-     * Поддержка изменений: LiveData автоматически уведомляет наблюдателей о изменениях данных,
-     * что делает его идеальным для реализации паттерна MVVM.
-     *
-     * Что умеет LiveData:
-     * Передача данных: LiveData позволяет хранить и передавать данные, такие как результаты запросов
-     * к базе данных или сетевым API.
-     *
-     * Адаптация к изменениям: Когда данные изменяются (например, после запроса к базе данных),
-     * LiveData уведомляет всех активных наблюдателей, и пользовательский интерфейс может автоматически обновляться.
-     *
-     * Комбинирование: LiveData можно комбинировать с другими компонентами, такими как Transformations,
-     * чтобы изменять данные перед их передачей наблюдателям.
+     * You can register an observer paired with an object that implements the LifecycleOwner interface.
+     * This relationship allows the observer to be removed when the state of the corresponding Lifecycle
+     * object changes to DESTROYED. This is especially useful for activities and fragments because they
+     * can safely observe LiveData objects and not worry about leaks—activities and fragments are instantly
+     * unsubscribed when their lifecycles are destroyed.
      * */
 }

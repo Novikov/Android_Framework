@@ -14,7 +14,8 @@ import androidx.lifecycle.ViewModel
 
 /**Все ViewModels хранятся внутрри мапы ViewModelStore
  * ViewModelStoreOwner это интерфейс который реализуют Activity и Fragment
- * Необходимо помнить что ViewModel не должен хранить ссылки на View/Context иначе гарантированно будет утечка памяти
+ * As they can potentially live longer than the ViewModelStoreOwner, ViewModels shouldn't hold
+ * any references of lifecycle-related APIs such as the Context or Resources to prevent memory leaks.
  * */
 class FirstViewModel : ViewModel() {
 
@@ -22,7 +23,7 @@ class FirstViewModel : ViewModel() {
         super.onCleared()
         Log.i("ASDASDASDASDDSA", "onCleared: ")
         /**Вызовется после открепления от LifeCycleOwner у Fragment или Activity
-         * Это происходит, например, при повороте экрана или при завершении Activity.
+         * Это происходит, например, при повороте экрана или при завершении Activity (.
          * Этот метод можно использовать для освобождения ресурсов или выполнения очистки,
          * например, отмены запросов, освобождения слушателей и т. д.
          * */
