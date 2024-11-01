@@ -1,6 +1,7 @@
 package com.app.aac.viewmodel
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -11,6 +12,7 @@ import com.app.aac.viewmodel.vm.SecondViewModel
 import com.app.aac.viewmodel.vm.ViewModelWithLiveData
 import com.app.aac.viewmodel.vm.ViewModelWithContext
 import com.app.aac.viewmodel.vm.ViewModelWithSaveStateHandle
+import com.app.aac.viewmodel.vm.ViewModelWithTransformedLiveData
 
 class ViewModelActivity : AppCompatActivity() {
 
@@ -21,6 +23,7 @@ class ViewModelActivity : AppCompatActivity() {
 
     //Пример Lazy инициализации ViewModel через Delegate
     val viewModelWithLiveData : ViewModelWithLiveData by viewModels()
+    val viewModelWithTransformedLiveData: ViewModelWithTransformedLiveData by viewModels()
     val viewModelWithSaveStateHandle: ViewModelWithSaveStateHandle by viewModels()
 
     /**
@@ -36,6 +39,18 @@ class ViewModelActivity : AppCompatActivity() {
         logViewModelData()
         observeLiveData()
         handleSavedStateHandle()
+
+        viewModelWithTransformedLiveData.similarLiveData.observe(this, {
+            Log.i("ASDASDASDASDASD", "similar $it")
+        })
+
+        viewModelWithTransformedLiveData.filteredLiveData.observe(this, {
+            Log.i("ASDASDASDASDASD", "filtered $it")
+        })
+
+        viewModelWithTransformedLiveData.postData()
+
+
     }
 
     private fun handleSavedStateHandle() {
