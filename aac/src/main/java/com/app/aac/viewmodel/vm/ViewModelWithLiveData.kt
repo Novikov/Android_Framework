@@ -12,6 +12,10 @@ class ViewModelWithLiveData : ViewModel() {
     private val _someLiveData = MutableLiveData<String>()
     val someData: LiveData<String> get() = _someLiveData
 
+    init {
+        Log.i("ASDASDASDASD", "ViewModelWithLiveData init block")
+    }
+
     /**
      * Как и peoperty с LiveData - property _someField будет хранить свое значение и переживать изменение конфигурации
      * Прелести LiveData в другом, а именно в том что мы смотрим на LiveData из View с помощью LifeCycleOwner
@@ -29,7 +33,7 @@ class ViewModelWithLiveData : ViewModel() {
 
     /**
      * LiveData — это компонент архитектуры Android Jetpack, который представляет собой наблюдаемый,
-     * жизненно-цикличный контейнер данных. Он позволяет разработчикам эффективно управлять данными,
+     * жизненно-цикличный контейнер данных (Observable data holder). Он позволяет разработчикам эффективно управлять данными,
      * которые могут изменяться, и обеспечивать обновление пользовательского интерфейса в ответ на эти изменения.
      *
      * Основные характеристики LiveData:

@@ -1,5 +1,6 @@
 package com.app.aac.viewmodel.vm
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 
 /**
@@ -19,6 +20,7 @@ class FirstViewModel : ViewModel() {
 
     override fun onCleared() {
         super.onCleared()
+        Log.i("ASDASDASDASDDSA", "onCleared: ")
         /**Вызовется после открепления от LifeCycleOwner у Fragment или Activity
          * Это происходит, например, при повороте экрана или при завершении Activity.
          * Этот метод можно использовать для освобождения ресурсов или выполнения очистки,
