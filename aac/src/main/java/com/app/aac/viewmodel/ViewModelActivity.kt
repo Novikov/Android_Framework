@@ -39,18 +39,17 @@ class ViewModelActivity : AppCompatActivity() {
         logViewModelData()
         observeLiveData()
         handleSavedStateHandle()
+        viewModelTransformations()
+    }
 
-        viewModelWithTransformedLiveData.similarLiveData.observe(this, {
+    private fun viewModelTransformations() {
+        viewModelWithTransformedLiveData.similarLiveData.observe(this) {
             Log.i("ASDASDASDASDASD", "similar $it")
-        })
-
-        viewModelWithTransformedLiveData.filteredLiveData.observe(this, {
+        }
+        viewModelWithTransformedLiveData.filteredLiveData.observe(this) {
             Log.i("ASDASDASDASDASD", "filtered $it")
-        })
-
+        }
         viewModelWithTransformedLiveData.postData()
-
-
     }
 
     private fun handleSavedStateHandle() {

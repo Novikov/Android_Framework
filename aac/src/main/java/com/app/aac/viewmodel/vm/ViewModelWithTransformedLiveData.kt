@@ -1,6 +1,7 @@
 package com.app.aac.viewmodel.vm
 
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.distinctUntilChanged
@@ -67,6 +68,45 @@ class ViewModelWithTransformedLiveData : ViewModel(){
             Thread.sleep(1000)
             sourceLiveData.postValue(3)
         }.start()
+    }
+
+    /**
+     * Если нам нужно слить несколько LiveData в одну то используем MediatorLiveData
+     * Результирующее событие будет выходить на каждый post события в Source LiveData.
+     * Т.е получаем поведение как в merge в Rx
+     * */
+    private val userIdLiveData = MutableLiveData<Int>()
+    private val loadingLiveData = MutableLiveData<Boolean>()
+
+    // MediatorLiveData, которое комбинирует данные
+    val userStatus: MediatorLiveData<String> = MediatorLiveData()
+
+    init {
+        // Добавляем userIdLiveData как источник данных
+        userStatus.addSource(userIdLiveData) { userId ->
+            userStatus.value = combineData(userId, loadingLiveData.value)
+        }
+
+        // Добавляем loadingLiveData как источник данных
+        userStatus.addSource(loadingLiveData) { isLoading ->
+            userStatus.value = combineData(userIdLiveData.value, isLoading)
+        }
+    }
+
+    private fun combineData(userId: Int?, isLoading: Boolean?): String {
+        return if (isLoading == true) {
+            "Loading..."
+        } else {
+            "User ID: ${userId ?: "No User"}"
+        }
+    }
+
+    fun setUserId(userId: Int) {
+        userIdLiveData.value = userId
+    }
+
+    fun setLoading(isLoading: Boolean) {
+        loadingLiveData.value = isLoading
     }
 }
 
