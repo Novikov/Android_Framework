@@ -18,3 +18,43 @@ class MainActivity : AppCompatActivity() {
         }
     }
 }
+
+/**
+ * Состояния
+ * Created/Stopped
+ * Visible + 2 окна
+ * Resumed
+ * Негарантированный вызов ondestroy
+ *
+ * Изменение конфигурации. Адаптация к новым ресурсам, поэтому пересоздание.
+ * -Переворот
+ * -Смена языка
+ * -Клавиатура?
+ *
+ * Сохранение состояния (Уничтожение на короткое время)
+ * -Persistant Storage
+ * -ViewModel
+ * -OnSavedInstanceState (Serializable + Parcelable расписать разницу)
+ * -Где подбирать восстановленный bundle (onCreate или onRestoreInstanceState?)
+ * Какие вьюшки так же сохраняют состояние в Bundle (StateFul/StateLess) EditText с ID, RecyclerView
+ * Как выключить фильтровать эвенты на пересоздание активити
+ *
+ * Финиш активити и что делать в этом случае. (Уничтожение на долгое время)
+ * crash
+ * finish()
+ * onBackPressed()
+ * Вручную удаляем из TaskManager
+ *
+ * Как активити станет host для фрагментов
+ *
+ * Связь с Application
+ * Точка входа ActivityManager
+ *
+ * StartActivityForResult
+ * Task/BackStack/LaunchMode/Process
+ *
+ * Типы интентов
+ *
+ * Фокусы клавиатуры это что такое.
+ *
+ * */
