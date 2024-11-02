@@ -17,7 +17,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.app.navigation.hand_navigation.HandNavigationActivity"
+            android:name="com.app.navigation.navigation.hand_navigation.HandNavigationActivity"
             android:exported="true" >
         </activity>
     </application>

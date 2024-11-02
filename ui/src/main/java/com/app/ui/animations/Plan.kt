@@ -1,4 +1,4 @@
-package com.app.animations
+package com.app.ui.animations
 
 /**
  * Анимации между Activity

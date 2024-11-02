@@ -1,4 +1,4 @@
-package com.app.navigation.hand_navigation
+package com.app.navigation.navigation.hand_navigation
 
 import android.os.Bundle
 import android.util.Log

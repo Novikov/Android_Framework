@@ -1,4 +1,4 @@
-package com.app.navigation.hand_navigation
+package com.app.navigation.navigation.hand_navigation
 
 import android.content.Context
 import android.os.Bundle

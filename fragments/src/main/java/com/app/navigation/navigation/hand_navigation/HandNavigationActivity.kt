@@ -1,4 +1,4 @@
-package com.app.navigation.hand_navigation
+package com.app.navigation.navigation.hand_navigation
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -13,10 +13,13 @@ class HandNavigationActivity : AppCompatActivity(), FragmentA.CallBack {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_hand_navigation)
 
-        supportFragmentManager
-            .beginTransaction()
-            .add(R.id.fragment_container, FragmentA.newInstance())
-            .commit()
+        //Если убрать данную проверку то при перевороте экррана будет добавляться клон текущего фрагмента
+        if (savedInstanceState==null) {
+            supportFragmentManager
+                .beginTransaction()
+                .add(R.id.fragment_container, FragmentA.newInstance())
+                .commit()
+        }
     }
 
     override fun toFragmentB(text: String) {
