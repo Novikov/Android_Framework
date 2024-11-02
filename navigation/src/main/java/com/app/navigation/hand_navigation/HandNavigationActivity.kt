@@ -4,6 +4,10 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.app.navigation.R
 
+/**
+ * В данной Activity реализован паттерн HostSctivity + HostFragment.
+ * Навигацией управляет HostActivity через вызов соответсвующих callback методов фрагмента.
+ * */
 class HandNavigationActivity : AppCompatActivity(), FragmentA.CallBack {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
