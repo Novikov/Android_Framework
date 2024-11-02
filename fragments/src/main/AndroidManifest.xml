@@ -20,6 +20,7 @@
             android:name="com.app.navigation.navigation.hand_navigation.HandNavigationActivity"
             android:exported="true" >
         </activity>
+        <activity android:name=".fragment_theory.transactions.TransactionsActivity"/>
     </application>
 
 </manifest>

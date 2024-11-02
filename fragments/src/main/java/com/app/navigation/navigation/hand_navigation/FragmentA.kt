@@ -15,7 +15,7 @@ class FragmentA : Fragment() {
         fun toFragmentB(text: String)
     }
 
-    lateinit var callBack: CallBack
+    var callBack: CallBack? = null
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -33,8 +33,13 @@ class FragmentA : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val button = view.findViewById<Button>(R.id.navigation_button)
         button.setOnClickListener {
-            callBack.toFragmentB("Some text")
+            callBack?.toFragmentB("Some text")
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        callBack = null /** Не забываем обнулить*/
     }
 
     companion object {
