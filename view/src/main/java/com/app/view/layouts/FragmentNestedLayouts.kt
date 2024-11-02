@@ -1,11 +1,11 @@
-package com.app.ui.layouts
+package com.app.view.layouts
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.app.ui.R
+import com.app.view.R
 
 /**
  * В layout этого фрагмента реализован пример ухода от дополнительной вложенности ViewGroup через merge тег
