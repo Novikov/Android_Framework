@@ -1,8 +1,6 @@
 package com.app.navigation
 
 /**
- * 1.Способ создания и конструктор.
- *
  * Layout Inflater и onCreateView более подробно
  *
  * 2.Layout в constructor
