@@ -1,7 +1,6 @@
 package com.app.activity
 
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 
@@ -200,4 +199,11 @@ class MainActivity : AppCompatActivity() {
  * startActivityForResult() - depricated
  * правильный способ - ActivityResult API https://developer.android.com/training/basics/intents/result
  * Розов хорошо раасказал https://www.youtube.com/watch?v=_QyufxuP4tQ
+ * */
+
+/**
+ * Корневой контейнер у Activity это Window.
+ * Window - задает базовую стратегию для отображения
+ * Window содержит DecoreView который прикрепляет к себе первый Layout
+ * От DecoreView почкуется дерево View. Если Activity 2 - то у нас будет 2 дерева.
  * */
