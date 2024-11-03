@@ -15,7 +15,6 @@ dependencyResolutionManagement {
 rootProject.name = "Compose"
 include ':compose'
 include ':foreground'
-include ':recycler'
 include ':ui'
 include ':data_storage'
 include ':os_android'

@@ -1,4 +1,4 @@
-package com.app.recycler
+package com.app.view.recycler
 
 /**
  * Реализовать Recycler который н а вход будет принимать список Activity и отображать их в списке
