@@ -46,6 +46,7 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     //FlexBoxLayout
     implementation 'com.google.android.flexbox:flexbox:3.0.0'
+    implementation 'androidx.fragment:fragment-ktx:1.5.5'
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.2.1'

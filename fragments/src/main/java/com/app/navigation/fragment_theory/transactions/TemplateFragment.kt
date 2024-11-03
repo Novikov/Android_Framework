@@ -43,6 +43,9 @@ class TemplateFragment : Fragment(R.layout.fragment_template) {
         val fragment_container =
             view?.findViewById<ConstraintLayout>(R.id.fragment_template_container)
 
+        /**
+         * Цвет будет меняться при перевороте
+         * */
         val rnd = Random()
         val color = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256))
         fragment_container?.setBackgroundColor(color)
@@ -80,8 +83,14 @@ class TemplateFragment : Fragment(R.layout.fragment_template) {
         Log.i(TAG, "$number onSaveInstanceState: ")
     }
 
+
+    /** State loss. Расписано в First Fragment*/
     override fun onStop() {
         super.onStop()
+//        parentFragmentManager.beginTransaction()
+//            .replace(R.id.fragment_container, TemplateFragment())
+//            .commit()
+//            .commitAllowingStateLoss()
         Log.i(TAG, "$number onStop: ")
     }
 

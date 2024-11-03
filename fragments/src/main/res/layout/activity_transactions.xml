@@ -50,10 +50,10 @@
             android:layout_marginLeft="8dp"/>
 
         <Button
-            android:id="@+id/remove_and_add_to_backstack_button"
+            android:id="@+id/null_to_backstack_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Remove + B"
+            android:text="Null + B"
             android:layout_marginLeft="8dp"/>
 
         <Button
@@ -82,6 +82,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Pop immediate"
+            android:layout_marginLeft="8dp"/>
+
+        <Button
+            android:id="@+id/pop_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pop all"
             android:layout_marginLeft="8dp"/>
 
     </com.google.android.flexbox.FlexboxLayout>
