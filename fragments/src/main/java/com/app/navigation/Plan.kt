@@ -1,6 +1,8 @@
 package com.app.navigation
 
 /**
+ * Manifest
+ *
  * Layout Inflater и onCreateView более подробно
  *
  * 2.Layout в constructor

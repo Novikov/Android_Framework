@@ -38,4 +38,6 @@ package com.app.foreground
  * AlarmManager
  *
  * killable activity !!! Почему то просят добавлять сервис чтоб система не убивала.
+ *
+ * Sticky Intent, Pending Intent.
  * */
