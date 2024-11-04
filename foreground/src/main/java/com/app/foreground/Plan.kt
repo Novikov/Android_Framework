@@ -40,4 +40,28 @@ package com.app.foreground
  * killable activity !!! Почему то просят добавлять сервис чтоб система не убивала.
  *
  * Sticky Intent, Pending Intent.
+ *
+ * Расписать способы реализации bound service на примерах
+ *
+ * зачем переопределять onBind в started сервисах?
+ *
+ *
+ *
+ * foreground service
+ * какой контракт у foreground service?
+ * В примере сделать отдельную кнопку для запуска сервиса в отдельном процессе
+ *
+ *
+ *
+ * В какой момент сервис завершится, если сервис запустить как Started, а потом прибиндиться к нему и анбиндиться
+ *
+ * Work Manager
+ * реализовать пример workmanager который будет работать когда появится интернет
+ * узнать как работает под капотом
+ *
+ * JobScheduler
+ * DownloadManager
+ * AlarmManager
+ *
+ *
  * */
