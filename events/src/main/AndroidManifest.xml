@@ -7,6 +7,25 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Compose" />
+        android:theme="@style/Theme.Compose" >
+        <activity
+            android:name=".broadcast.BroadcastActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Регистрация BroadcastReceiver в манифесте -->
+        <receiver android:name=".broadcast.examples.BroadCastReceiverWithRegistrationInManifest"
+            android:exported="true"
+            android:enabled="true">
+            <intent-filter>
+                <!-- Указываем кастомное действие -->
+                <action android:name="com.app.broadcastreceiver.MY_NOTIFICATION_TO_MANIFEST_RECEIVER" />
+            </intent-filter>
+        </receiver>
+    </application>
 
 </manifest>

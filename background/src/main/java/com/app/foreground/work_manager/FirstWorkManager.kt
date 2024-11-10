@@ -13,6 +13,8 @@ package com.app.foreground.work_manager
  * -Immediate
  * -Long-running
  * -Deferrable
+ *
+ * todo Как Doze Mode влияет на Work Manager
  * */
 class FirstWorkManager {
 }
