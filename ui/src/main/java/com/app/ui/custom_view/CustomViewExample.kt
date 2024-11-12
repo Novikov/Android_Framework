@@ -1,4 +1,4 @@
-package com.app.view.custom_view
+package com.app.ui.custom_view
 
 import android.content.Context
 import android.graphics.Canvas

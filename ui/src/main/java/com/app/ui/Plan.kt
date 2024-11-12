@@ -1,4 +1,4 @@
-package com.app.view
+package com.app.ui
 
 /**
  * кастомные атрибуты атрибуты

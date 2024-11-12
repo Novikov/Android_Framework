@@ -1,4 +1,4 @@
-package com.app.view.recycler_view
+package com.app.ui.recycler_view
 
 /**
  * Учитываются ли var переменные в equals дата класса? Почему у Андрюшенко не изменился тип во втором видео?
