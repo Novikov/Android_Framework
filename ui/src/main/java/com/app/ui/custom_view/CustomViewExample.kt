@@ -30,6 +30,10 @@ class CustomViewExample @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0, defStyleRes: Int = 0
 ) : View(context, attrs, defStyleAttr) {
 
+    override fun onFinishInflate() {
+        super.onFinishInflate()
+    }
+
     /** View прикреплена к экрану*/
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
@@ -103,3 +107,8 @@ class CustomViewExample @JvmOverloads constructor(
         super.onDetachedFromWindow()
     }
 }
+
+/**
+ * В каких ситуация вообще может понадобиться вызывать invalidete или Request layout у View?
+ * -Изменить раземр шрифта у TextView например
+ * */
