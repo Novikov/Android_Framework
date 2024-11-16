@@ -10,6 +10,8 @@ import androidx.compose.runtime.currentRecomposeScope
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.graphics.Color
 
 /**
@@ -64,7 +66,9 @@ fun MyCheckBox2() {
 
 @Composable
 fun MyCheckBox3() {
-    val checkedState by remember { mutableStateOf(true) }
+    var checkedState: Boolean by remember { mutableStateOf(true) } // не переживает изменение конфигурации, использование нежелательно
+    // val checkedState2 by rememberSaveable { mutableStateOf(true) } // переживает изменение конфигурации
+    //checkedState сделан как var delegate и его можно менять просто обращаясь к переменной и это будет работать
     Checkbox(checked = checkedState, onCheckedChange = { newChecked ->
         checked = newChecked
     })
@@ -108,7 +112,7 @@ fun ParentComponent() {
 
 @Composable
 fun Component() {
-    val currentColor = LocalContentColor.current
+    //val currentColor = LocalContentColor.current
 }
 
 /**
@@ -120,6 +124,12 @@ fun Component() {
  * В коде это выглядит следующим образом:
  *
  * https://www.youtube.com/live/RKMx8aj-q7Y?feature=shared&t=3162
- *
+ * */
+
+
+/**
+ * StateFull vs StateLess Composable function
+ * Statefull - если внутри есть состояние на которое она подписана
+ * StateLess - на вход состояние, например Bolean, и callback по изменению состояния. Предпочтительный способ. Можем переиспользовать компонент
  *
  * */
