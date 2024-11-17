@@ -5,7 +5,10 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
@@ -13,7 +16,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 /**
- * Модификаторы применяются снизу вверх или справа налево
+ * Modifiers применяются снизу вверх или справа налево
  * */
 
 @Preview
@@ -60,3 +63,29 @@ private fun Element() {
  * offset > offset
  * alpha > graphicsLayer
  * */
+
+
+/**
+ * Composition Local
+ * Composition Local в Android Jetpack Compose — это механизм, который позволяет вам передавать значения
+ * или зависимости вниз по дереву компонентов (Composable) без явного использования параметров для каждого компонента.
+ *
+ * Без CompositionLocal пришлось бы передавать все параметры
+ * */
+
+
+val LocalGreeting = compositionLocalOf { "Hello" }
+
+@Composable
+fun GreetingScreen() {
+    CompositionLocalProvider(LocalGreeting provides "Hi there!") {
+        GreetingMessage()
+    }
+}
+
+@Composable
+fun GreetingMessage() {
+    // Получаем значение из LocalGreeting
+    val greeting = LocalGreeting.current
+    Text(text = greeting)
+}
