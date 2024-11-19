@@ -8,4 +8,8 @@ package com.umbrella.compose
  *
  * todo реализовать при мер statehosting с выделением списка
  * todo Разобрать как устроен CustomLayout и CustomComponent
+ * todo SavedInstanceState и переживаниек смерти процесса
+ * Navigation
+ * produceState
+ * ConstraintLayout
  * */

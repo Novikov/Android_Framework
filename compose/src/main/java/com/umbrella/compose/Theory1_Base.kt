@@ -3,6 +3,17 @@ package com.umbrella.compose
 /**
  Compose - декларативный UI Framework где мы пишем UI при помощи Composable функций на Kotlin
  Декларативный - мы пишем что мы хотим, а не как.
+ Unidirectional Data Flow подход построения архитектуры который позволяет упростить управление состоянием UI
+ Его можно ораганизовать и без Compose, но Compose упрощает процесс построения UDF
+
+ UDF в UI
+ UI генерит эвенты которые меняют стейт и подписывается на его изменения через observer паттерн
+
+ Jetpack Compose is a modern, declarative UI toolkit for Android development. Its core principles are:
+ 1. Unidirectional data flow: Ensures consistent state management and simplifies UI logic.
+ 2. Declarative syntax: Expresses UI components concisely, making code more readable and maintainable.
+ 3. Reusability: Encourages modular, reusable components that can be easily shared across projects.
+ 4. Kotlin-first: Leverages Kotlin’s language features to provide a seamless developer experience.
 
  Зачем? вынести UI фрамеворк в отдельную библиотеку и не задерживать релизный цикл
 
@@ -43,7 +54,10 @@ package com.umbrella.compose
 
  Compose работает в 3 фазы
  1)Composition - построение UI дерева
- 2)Layout - все UI элементы измеряются и встраиваются в местоположение
+ 2)Layouting
+ -Измерение
+ -Встраивание
+ -Все UI элементы измеряются и встраиваются в местоположение
  -Можно оптимизировать и ибрать лишние вызовы спомощью drawBehind оператора у модификатора
  3)Drawing - отрисовка на canvas
 

@@ -9,6 +9,7 @@ import androidx.compose.runtime.currentRecomposeScope
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.graphics.Color
 
@@ -65,7 +66,7 @@ fun MyCheckBox2() {
 @Composable
 fun MyCheckBox3() {
     var checkedState: Boolean by remember { mutableStateOf(true) } // не переживает изменение конфигурации, использование нежелательно
-    // val checkedState2 by rememberSaveable { mutableStateOf(true) } // переживает изменение конфигурации
+     val checkedState2 by rememberSaveable { mutableStateOf(true) } // переживает изменение конфигурации
     //checkedState сделан как var delegate и его можно менять просто обращаясь к переменной и это будет работать
     Checkbox(checked = checkedState, onCheckedChange = { newChecked ->
         checked = newChecked
