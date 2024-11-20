@@ -37,7 +37,7 @@ import com.app.navigation.databinding.ActivityTransactionsBinding
  * Асинхронный: Удаляет верхний фрагмент из стека.
  * popBackStack(String name, int flags)
  *
- * Асинхронный: Удаляет все фрагменты до указанного фрагмента.
+ * Синхронный: Удаляет все фрагменты до указанного фрагмента.
  * popBackStackImmediate()
  *
  * Синхронный: Немедленно удаляет верхний фрагмент из стека.

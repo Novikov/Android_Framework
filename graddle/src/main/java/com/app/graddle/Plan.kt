@@ -1,5 +1,8 @@
 package com.app.graddle
 
 /**
- * Расписать все возможности Gradle
+ * Implementation
+ * Api
+ * Compile only (RxJava + Implementation)
+ * Runtime only
  * */
