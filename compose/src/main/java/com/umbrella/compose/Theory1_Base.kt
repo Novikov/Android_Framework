@@ -66,6 +66,9 @@ package com.umbrella.compose
  -padding
  -color
 
+ В него выносятся параметры
+
+
  LazyColumn - аналог RecyclerView в Android
 
  todo DiffUtil встроен в Compose - разобрать

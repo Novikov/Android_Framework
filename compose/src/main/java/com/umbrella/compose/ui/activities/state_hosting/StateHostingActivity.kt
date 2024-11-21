@@ -20,6 +20,18 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.umbrella.compose.ui.activities.state.ui.theme.ComposeTheme
 
+/** 
+ *Compose старается максимально оптимизировать запуск Composable функций.
+ * Это еще одна причина (кроме производительности) почему не надо в Composable функциях менять значение в БД и выполнять прочие операции,
+ * которые напрямую меняют какое-то состояние снаружи. Потому что вы не можете заранее знать, сколько раз будет вызвана эта функция.
+ * Даже если вы точно посчитали, что ваша Composable функция будет вызвана определенное количество раз за весь жизненный цикл экрана,
+ * то какой-то другой разработчик может добавить туда новых входных параметров или State. И это сломает ваши расчеты. Поэтому нам ни в коем случае нельзя завязывать логику приложения на вызовы Composable функции.
+ * Повторюсь, Composable функция принимает снаружи State или данные и отображает их на экране, а обратную связь осуществляет через лямбды. Сама функция напрямую не должна делать ничего важного.
+ *
+ * todo Remember + key, куда пишет
+ *
+ *  collectAsStateWithLifecycle
+ * */
 class StateHostingActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
