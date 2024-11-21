@@ -29,7 +29,7 @@ import androidx.compose.ui.unit.dp
  * 3)Indirect recomposition (неявная) - это про Text в MyCheckBox3
  * Родительская функция перевызвалась и изменила параметры этой функции
  *
- * Причину рекомпозиции можно увидеть в debugger в cсвойстве Recomposition State
+ * Причину рекомпозиции можно увидеть в debugger в cвойстве Recomposition State
  * */
 
 @Composable
