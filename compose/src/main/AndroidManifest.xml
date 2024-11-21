@@ -14,25 +14,7 @@
         android:theme="@style/Theme.Compose"
         tools:targetApi="31">
         <activity
-            android:name=".ui.activities.composition_local.CompositionLocalActivity"
-            android:exported="false"
-            android:label="@string/title_activity_composition_local"
-            android:theme="@style/Theme.Compose">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".ui.activities.instagram_card.InstagramCardActivity"
-            android:exported="false"
-            android:label="@string/title_instagram_card_activity"
-            android:theme="@style/Theme.Compose">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".ui.activities.state_hosting.StateHostingActivity"
+            android:name=".ui.activities.elements.TestElementsActivity"
             android:exported="false"
             android:label="@string/title_activity_state_hosting"
             android:theme="@style/Theme.Compose">
@@ -41,29 +23,13 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".ui.activities.state.StateListActivity"
-            android:exported="false"
-            android:label="@string/title_activity_state_list"
-            android:theme="@style/Theme.Compose">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".ui.activities.cards_list.ListWithVisibilityActivity"
+            android:name=".ui.activities.list.ListWithVisibilityActivity"
             android:exported="false"
             android:label="@string/title_activity_card_list"
             android:theme="@style/Theme.Compose" />
         <activity
-            android:name=".ui.activities.simple_list.SimpleListActivity"
-            android:exported="false"
-            android:label="@string/title_activity_visibility"
-            android:theme="@style/Theme.Compose" />
-        <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:label="@string/app_name"
-            android:screenOrientation="sensor"
             android:theme="@style/Theme.Compose">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

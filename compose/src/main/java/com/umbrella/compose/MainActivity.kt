@@ -17,12 +17,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.umbrella.compose.ui.activities.cards_list.ListWithVisibilityActivity
-import com.umbrella.compose.ui.activities.composition_local.CompositionLocalActivity
-import com.umbrella.compose.ui.activities.instagram_card.InstagramCardActivity
-import com.umbrella.compose.ui.activities.simple_list.SimpleListActivity
-import com.umbrella.compose.ui.activities.state.StateListActivity
-import com.umbrella.compose.ui.activities.state_hosting.StateHostingActivity
+import com.umbrella.compose.ui.activities.list.ListWithVisibilityActivity
+import com.umbrella.compose.ui.activities.elements.TestElementsActivity
 import com.umbrella.compose.ui.theme.MainTheme
 
 class MainActivity : ComponentActivity() {
@@ -49,12 +45,8 @@ class MainActivity : ComponentActivity() {
             ) {
                 val navigationList =
                     listOf(
-                        InstagramCardActivity::class.java,
-                        SimpleListActivity::class.java,
                         ListWithVisibilityActivity::class.java,
-                        StateListActivity::class.java,
-                        StateHostingActivity::class.java,
-                        CompositionLocalActivity::class.java
+                        TestElementsActivity::class.java,
                     )
                 createButtonsList(navigationList)
             }

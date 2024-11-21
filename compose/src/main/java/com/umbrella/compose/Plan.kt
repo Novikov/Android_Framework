@@ -12,6 +12,10 @@ package com.umbrella.compose
  * -Scope
  * -Соединение через then
  *
+ *  * todo Remember + key, куда пишет
+ *  *
+ *  *  collectAsStateWithLifecycle
+ *
  * Внутрянка Compose функции
  * Внутрянка remember
  *
