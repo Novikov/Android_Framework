@@ -61,7 +61,7 @@ fun HomeScreen() {
         var checked by remember { mutableStateOf(false) }
         Checkbox(checked = checked, onCheckedChange = { checked = it })
         if (checked) {
-            val myObject = remember { MyObject() }
+            //val myObject = remember { MyObject() }
             // val a = 1 / 0 для того чтобы сработал onAbandoned
         }
     }

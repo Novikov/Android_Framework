@@ -23,11 +23,6 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".ui.activities.list.ListWithVisibilityActivity"
-            android:exported="false"
-            android:label="@string/title_activity_card_list"
-            android:theme="@style/Theme.Compose" />
-        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:theme="@style/Theme.Compose">

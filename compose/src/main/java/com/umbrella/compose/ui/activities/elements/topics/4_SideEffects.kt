@@ -33,7 +33,7 @@ fun EffectsScreen() {
 }
 
 /**
- *  LaunchedEffect - позволяет запустить suspend функцию внутри composable функции
+ *  LaunchedEffect - позволяет запустить suspend функцию внутри composable функции (но не колбэках). Запускается только внутри Composable
  *  на этом построены анимации
  *  Рекомпозиция не влияет на работу Suspend функции
  *  key1 = это ключ для рекомпозиции, обрати внимание что есть перегрузки с разным количеством keys
@@ -112,24 +112,21 @@ fun ComposableWIthDisposableEffect() {
 
 @Composable
 fun ComposableWithRememberCoroutineScope() {
-    @Composable
-    fun HomeScreen() {
-        Column {
-            var checked by remember { mutableStateOf(true) }
-            Checkbox(checked = checked, onCheckedChange = { checked = it })
+    Column {
+        var checked by remember { mutableStateOf(true) }
+        Checkbox(checked = checked, onCheckedChange = { checked = it })
 
-            if (checked) {
-                val scope = rememberCoroutineScope()
-                Text(text = "Click", modifier = Modifier.clickable {
-                    scope.launch {
-                        var count = 0
-                        while (true) {
-                            Log.d(TAG, "count = ${count++}")
-                            delay(1000)
-                        }
+        if (checked) {
+            val scope = rememberCoroutineScope()
+            Text(text = "Click", modifier = Modifier.clickable {
+                scope.launch {
+                    var count = 0
+                    while (true) {
+                        Log.d(TAG, "count = ${count++}")
+                        delay(1000)
                     }
-                })
-            }
+                }
+            })
         }
     }
 }
