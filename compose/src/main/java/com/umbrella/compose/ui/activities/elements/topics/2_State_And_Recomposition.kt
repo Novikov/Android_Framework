@@ -5,8 +5,10 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Checkbox
 import androidx.compose.material3.Button
+import androidx.compose.material3.MaterialTheme.typography
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.currentRecomposeScope
 import androidx.compose.runtime.getValue
@@ -16,6 +18,9 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 /**
  * Типы рекомпозиций
@@ -44,6 +49,8 @@ fun StateHostingScreen() {
 
         val counter =  mutableStateOf(0)
         CounterContentWithStateHosting(counter)
+
+        CounterContentAtomicCheck()
     }
 }
 
@@ -174,3 +181,25 @@ fun CounterContentWithStateHosting(count: MutableState<Int>){
  * Statefull - если внутри есть состояние на которое она подписана
  * StateLess - на вход состояние, например Bolean, и callback по изменению состояния. Предпочтительный способ. Можем переиспользовать компонент
  * */
+
+
+@Composable
+fun CounterContentAtomicCheck(){
+    var counter by remember { mutableStateOf(0) }
+    Column(modifier = Modifier.padding(16.dp)) {
+            LaunchedEffect(Unit) {
+                    launch {
+                        repeat(100000) {
+                            counter += 1
+                        }
+                    }
+                    launch {
+                        repeat(100000) {
+                            counter += 1
+                        }
+                    }
+
+        }
+        Text(text = "Counter: $counter")
+    }
+}

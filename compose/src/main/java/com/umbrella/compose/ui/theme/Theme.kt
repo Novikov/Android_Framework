@@ -58,7 +58,7 @@ fun MainTheme(
 
     MaterialTheme(
         colorScheme = colorScheme,
-        typography = com.umbrella.compose.ui.activities.list.ui.theme.Typography,
+        typography = Typography,
         content = content
     )
 }

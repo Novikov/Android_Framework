@@ -2,21 +2,17 @@ package com.umbrella.compose.ui.activities.elements.topics
 
 import android.content.ContentValues.TAG
 import android.util.Log
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
-import androidx.compose.material.Text
 import androidx.compose.material3.Checkbox
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Modifier
 import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 
 /**
  * Мы уже знаем, что наши Composable функции могут быть вызваны системой несколько раз, и не всегда мы можем точно предсказать эти вызовы.
@@ -33,11 +29,12 @@ fun EffectsScreen() {
 }
 
 /**
- *  LaunchedEffect - позволяет запустить suspend функцию внутри composable функции (но не колбэках). Запускается только внутри Composable
- *  на этом построены анимации
- *  Рекомпозиция не влияет на работу Suspend функции
- *  key1 = это ключ для рекомпозиции, обрати внимание что есть перегрузки с разным количеством keys
- *  LaunchEffect перезапускается только когда изменится его ключ и наоборот рекомпозиция не будет работать со статическим ключем
+ *  LaunchedEffect - позволяет запустить suspend функцию внутри composable функции при старте composable функции (но не колбэках).
+ *  Запускается только внутри Composable
+ *  С его помощью запускают анимации
+ *  Рекомпозиция не влияет на работу Suspend функции, т.е функция будет выполнена один раз
+ *  key1 = это ключ для перевызова LaunchEffect, обрати внимание что есть перегрузки с разным количеством keys
+ *  LaunchEffect перезапускается только когда изменится его ключ и наоборот перевызов LE не будет работать со статическим ключем
  *
  *  Открываем исходники класса LaunchedEffectImpl и видим, что он реализует RememberObserver.
  *  Если класс реализует интерфейс RememberObserver, то он будет в курсе о lifecycle этапах Composable кода, где был вызван remember с этим классом
@@ -56,6 +53,7 @@ fun ComponentWithLaunchEffect() {
         Checkbox(checked = checked, onCheckedChange = { checked = it })
         if (checked) {
             LaunchedEffect(key1 = Unit) {
+                // тут можно вызывать как suspend, так и не suspend код
                 var count = 0
                 while (true) {
                     Log.d(TAG, "count = ${count++}")
@@ -94,39 +92,22 @@ fun ComposableWIthDisposableEffect() {
 }
 
 /**
- * rememberCoroutineScope
- * LaunchedEffect используется для запуска корутин в Composable коде.
- * Но мы не можем использовать его в колбэках, типа onClick. Для таких случаев и нужна функция rememberCoroutineScope.
- * Она предоставляет нам scope, чтобы мы могли запустить корутину в колбэке.
- *
- * При входе в Composition (onRemembered) ему ничего не надо делать, он получил scope снаружи.
- * А вот при выходе из Composition (onForgotten) или при возникновении ошибок (onAbandoned) он отменяет scope.
- * Таким образом время жизни scope будет таким же, как время жизни Composable кода, где вызывается rememberCoroutineScope.
- * */
-
-/**
- * Чекбокс включен по умолчанию. Внутри IF мы получаем scope от rememberCoroutineScope и используем его, чтобы запустить корутину по нажатию на текст.
- * Корутина считает секунды и выводит их в лог.
- * Что произойдет, когда мы выключим чекбокс? rememberCoroutineScope покинет Composition, а значит отменит scope, и, тем самым, и нашу корутину.
+ * Функция SideEffect гарантирует, что код будет выполнен только в случае успешного выполнения Composable кода.
+ * Если же что-то пошло не так, что SideEffect не выполнится.
+ * Чел пишет что не нашел способа получить ошибку в Composable кроме как бросить исключение
  * */
 
 @Composable
-fun ComposableWithRememberCoroutineScope() {
+fun ExampleWithSideEffect() {
     Column {
-        var checked by remember { mutableStateOf(true) }
+        var checked by remember { mutableStateOf(false) }
         Checkbox(checked = checked, onCheckedChange = { checked = it })
-
         if (checked) {
-            val scope = rememberCoroutineScope()
-            Text(text = "Click", modifier = Modifier.clickable {
-                scope.launch {
-                    var count = 0
-                    while (true) {
-                        Log.d(TAG, "count = ${count++}")
-                        delay(1000)
-                    }
-                }
-            })
+            Log.d(TAG, "HomeScreen log")
+            SideEffect {
+                Log.d(TAG, "HomeScreen log in SideEffect")
+            }
+            val a = 1 / 0
         }
     }
 }

@@ -17,7 +17,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.umbrella.compose.ui.activities.list.ListWithVisibilityActivity
 import com.umbrella.compose.ui.activities.elements.TestElementsActivity
 import com.umbrella.compose.ui.theme.MainTheme
 
@@ -45,7 +44,6 @@ class MainActivity : ComponentActivity() {
             ) {
                 val navigationList =
                     listOf(
-                        ListWithVisibilityActivity::class.java,
                         TestElementsActivity::class.java,
                     )
                 createButtonsList(navigationList)

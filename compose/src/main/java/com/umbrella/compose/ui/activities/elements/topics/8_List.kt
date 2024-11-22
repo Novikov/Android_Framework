@@ -35,7 +35,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.umbrella.compose.R
-import com.umbrella.compose.ui.activities.list.ui.theme.BasicsCodelabTheme
 
 @Composable
 fun ListScreen(modifier: Modifier = Modifier) {
@@ -154,23 +153,17 @@ private fun CardContent(name: String) {
 @Preview(showBackground = true, widthDp = 320)
 @Composable
 fun DefaultPreview() {
-    BasicsCodelabTheme {
-        Greetings()
-    }
+    Greetings()
 }
 
 @Preview(showBackground = true, widthDp = 320, heightDp = 320)
 @Composable
 fun OnboardingPreview() {
-    BasicsCodelabTheme {
-        OnboardingScreen(onContinueClicked = {})
-    }
+    OnboardingScreen(onContinueClicked = {})
 }
 
 @Preview
 @Composable
 fun MyAppPreview() {
-    BasicsCodelabTheme {
-        ListScreen(Modifier.fillMaxSize())
-    }
+    ListScreen(Modifier.fillMaxSize())
 }
