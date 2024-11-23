@@ -107,7 +107,7 @@ fun ExampleWithSideEffect() {
             SideEffect {
                 Log.d(TAG, "HomeScreen log in SideEffect")
             }
-            val a = 1 / 0
+           // val a = 1 / 0
         }
     }
 }

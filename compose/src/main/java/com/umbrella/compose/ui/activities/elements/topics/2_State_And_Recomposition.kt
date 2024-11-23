@@ -18,6 +18,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -116,7 +117,7 @@ fun CheckBoxRecompositionExample2() {
 @Composable
 fun CheckBoxRecompositionExample3() {
     var checkedState: Boolean by remember { mutableStateOf(true) } // не переживает изменение конфигурации, использование нежелательно
-    //val checkedState2 by rememberSaveable { mutableStateOf(true) } // переживает изменение конфигурации
+    //val checkedState2 by rememberSaveable { mutableStateOf(true) } // переживает изменение конфигурации, но более ресурсоемкий. если данные можно восстановить другим способом (например из ViiewModel) то лучше не использовать
     Row {
         Checkbox(checked = checkedState, onCheckedChange = { newChecked ->
             checked = newChecked
@@ -193,7 +194,7 @@ fun CounterContentAtomicCheck(){
                             counter += 1
                         }
                     }
-                    launch {
+                    launch(Dispatchers.Default) {
                         repeat(100000) {
                             counter += 1
                         }
