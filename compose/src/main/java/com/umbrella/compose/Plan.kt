@@ -25,11 +25,10 @@ package com.umbrella.compose
  * todo реализовать при мер statehosting с выделением списка
  * todo Разобрать как устроен CustomLayout и CustomComponent
  * todo SavedInstanceState и переживаниек смерти процесса
- * Navigation
- * produceState
- * ConstraintLayout
  *
+ *  todo DiffUtil встроен в Compose - разобрать
+ *  todo Что проихоодит после компиляции https://www.youtube.com/live/RKMx8aj-q7Y?feature=shared&t=4372
  *
- *
+ *  Как определить что юзер использует планшет и адаплировать для него layout и compose втч адаптация под Landscape
  *
  * */

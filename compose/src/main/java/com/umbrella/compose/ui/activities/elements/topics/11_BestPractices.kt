@@ -1,4 +1,4 @@
-package com.umbrella.compose
+package com.umbrella.compose.ui.activities.elements.topics
 
 /**
  * Guidlines

@@ -61,19 +61,6 @@ package com.umbrella.compose
  -Можно оптимизировать и ибрать лишние вызовы спомощью drawBehind оператора у модификатора
  3)Drawing - отрисовка на canvas
 
- Modifier - способ изменить параметры Compose сущности
- -size
- -padding
- -color
-
- В него выносятся параметры
-
-
- LazyColumn - аналог RecyclerView в Android
-
- todo DiffUtil встроен в Compose - разобрать
- todo Что проихоодит после компиляции https://www.youtube.com/live/RKMx8aj-q7Y?feature=shared&t=4372
-
  Отсутствует проблема measure для высокой вложенности ViewGroup
 
  Compose UI Tree structure:
