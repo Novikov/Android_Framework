@@ -13,6 +13,10 @@ import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import com.umbrella.compose.R
 
+/**
+ * У ComposeLayout нет различий в производительности как у ViewGroups.
+ * А так же отсутствует проблема увеленичение расходов на вложенные ComposeLayout.
+ * */
 @Composable
 fun LayoutScreen() {
     MyConstraintLayout()
