@@ -12,6 +12,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 /**
+ * Modifier
+ *
  * Modifiers применяются снизу вверх или справа налево
  *
  * Параметры VS Modifier

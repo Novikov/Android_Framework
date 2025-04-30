@@ -1,0 +1,14 @@
+Modifier
+Unidirectional data flow
+-Полное определение этого подхода
+-Что есть нарушения подхода
+-statehosting
+-statefull vs stateless functions
+-statefull vs stateless view
+
+LayoutGroups сравнить с теми что есть в конспекте
+Compose List Advanced
+
+PetProject  c акцентом на списки и как проект Youtube
+-OldWay
+-NewWay
